@@ -1,0 +1,38 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Login Form -->
+    <form [formGroup]="documentForm" (ngSubmit)="buscar()">
+      <div class="mb-3">
+        <label for="tipoDocumento" class="form-label">Tipo de Documento</label><br>
+        <select id="tipoDocumento" class="form-select" formControlName="tipoDocumento">
+          <option value="" disabled selected>Seleccione tipo de documento</option>
+          <option value="CC">Cédula de ciudadanía</option>
+          <option value="PPT">Pasaporte</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="numeroDocumento" class="form-label">Número de Documento</label>
+        <input id="numeroDocumento" class="form-control" formControlName="numeroDocumento" />
+        <div *ngIf="documentForm.get('numeroDocumento')?.touched && documentForm.get('numeroDocumento')?.invalid" class="text-danger">
+          <div *ngIf="documentForm.get('numeroDocumento')?.hasError('required')">Número de documento es obligatorio</div>
+          <div *ngIf="documentForm.get('numeroDocumento')?.hasError('minlength')">Debe tener al menos 8 caracteres</div>
+          <div *ngIf="documentForm.get('numeroDocumento')?.hasError('maxlength')">No puede tener más de 11 caracteres</div>
+          <div *ngIf="documentForm.get('numeroDocumento')?.hasError('pattern')">Solo se permiten números</div>
+        </div>
+      </div>
+      <button type="submit" 
+        class="btn" 
+        [ngClass]="{'btn-disabled': !documentForm.valid, 'btn-primary': documentForm.valid}" 
+        [disabled]="!documentForm.valid">
+    Buscar
+</button>
+
+
+    </form>
+  </div>
+</div>

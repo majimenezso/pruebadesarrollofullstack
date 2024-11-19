@@ -1,0 +1,10 @@
+1.BASE DE DATOS UTILIZADA : MONGODB 7.0.6 + MONGODBTOOLS 100.10.0
+2.API JAVA SPRINT BOOT 3 MAVEN  IDE UTILIZADO ECLIPSE 2024
+3.ANGULAR 18 MATERIAL CON BOOTSTRAP   IDE UTILIZADO cursor
+
+instalar MONGODB + MONGODBTOOLS para conexión y restauración de la base de datos
+
+CARPETA api = backed api rest sprint boot
+Carpeta dump copia de seguridad base de datos mongodb
+Carpeta pruebatecnica : frontend angular
+Word : evidencias de la prueba
